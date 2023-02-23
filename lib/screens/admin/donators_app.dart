@@ -9,15 +9,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
-class UsersApp extends StatefulWidget {
-  static const routeName = '/usersApp';
-  const UsersApp({super.key});
+class DonatorsApp extends StatefulWidget {
+  static const routeName = '/donatorsApp';
+  const DonatorsApp({super.key});
 
   @override
-  State<UsersApp> createState() => _UsersAppState();
+  State<DonatorsApp> createState() => _DonatorsAppState();
 }
 
-class _UsersAppState extends State<UsersApp> {
+class _DonatorsAppState extends State<DonatorsApp> {
   late DatabaseReference base;
   late FirebaseDatabase database;
   late FirebaseApp app;
@@ -35,7 +35,7 @@ class _UsersAppState extends State<UsersApp> {
     app = await Firebase.initializeApp();
     database = FirebaseDatabase(app: app);
     base = database.reference().child("users");
-    base.orderByChild("role").equalTo("مريض").onChildAdded.listen((event) {
+    base.orderByChild("role").equalTo("متبرع").onChildAdded.listen((event) {
       print(event.snapshot.value);
       Users p = Users.fromJson(event.snapshot.value);
       usersList.add(p);
@@ -53,7 +53,7 @@ class _UsersAppState extends State<UsersApp> {
         builder: (context, child) => Scaffold(
           appBar: AppBar(
               backgroundColor: Color.fromARGB(255, 225, 60, 48),
-              title: Text('بيانات المرضى')),
+              title: Text('بيانات المتبرعين')),
           body: Container(
             width: double.infinity,
             height: 10000,

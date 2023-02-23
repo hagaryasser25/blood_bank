@@ -59,43 +59,34 @@ class _PatientHomeState extends State<PatientHome> {
               SizedBox(
                 height: 10.h,
               ),
-              Row(
-                children: [
-                  InkWell(
-                      onTap: () {
-                         Navigator.pushNamed(context, BloodTypes.routeName);
-                      },
-                      child: card('#2196F3', 'فصائل الدم')),
-                  InkWell(
-                      onTap: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                title: Text('تأكيد'),
-                                content: Text('هل انت متأكد من تسجيل الخروج'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      FirebaseAuth.instance.signOut();
-                                      Navigator.pushNamed(
-                                          context, SplashScreen.routeName);
-                                    },
-                                    child: Text('نعم'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text('لا'),
-                                  ),
-                                ],
-                              );
-                            });
-                      },
-                      child: card('#ff3c30', 'تسجيل الخروج')),
-                ],
-              ),
+              InkWell(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text('تأكيد'),
+                            content: Text('هل انت متأكد من تسجيل الخروج'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  FirebaseAuth.instance.signOut();
+                                  Navigator.pushNamed(
+                                      context, SplashScreen.routeName);
+                                },
+                                child: Text('نعم'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('لا'),
+                              ),
+                            ],
+                          );
+                        });
+                  },
+                  child: card('#ff3c30', 'تسجيل الخروج')),
             ],
           ),
         ),

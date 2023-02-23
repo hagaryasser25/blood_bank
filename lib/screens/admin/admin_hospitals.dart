@@ -75,7 +75,7 @@ class _AdminHospitalsState extends State<AdminHospitals> {
           ),
           body: Container(
             width: double.infinity,
-            height: 300,
+            height: 10000.h,
             child: StaggeredGridView.countBuilder(
               padding: EdgeInsets.only(
                 top: 20.h,

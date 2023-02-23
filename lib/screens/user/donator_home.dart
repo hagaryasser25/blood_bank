@@ -69,9 +69,32 @@ class _DonatorHomeState extends State<DonatorHome> {
                       child: card('#2196F3', 'قائمة المتبرعين')),
                   InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, BloodTypes.routeName);
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('تأكيد'),
+                                content: Text('هل انت متأكد من تسجيل الخروج'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      FirebaseAuth.instance.signOut();
+                                      Navigator.pushNamed(
+                                          context, SplashScreen.routeName);
+                                    },
+                                    child: Text('نعم'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('لا'),
+                                  ),
+                                ],
+                              );
+                            });
                       },
-                      child: card('#ff3c30', 'فصائل الدم')),
+                      child: card('#ff3c30', 'تسجيل الخروج')),
                 ],
               ),
             ],

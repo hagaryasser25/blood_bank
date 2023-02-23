@@ -1,4 +1,5 @@
 import 'package:blood_bank/screens/admin/add_hospital.dart';
+import 'package:blood_bank/screens/hospital/add_bag.dart';
 import 'package:blood_bank/screens/models/bags_model.dart';
 import 'package:blood_bank/screens/models/hospitals_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,7 +75,7 @@ class _HospitalBagsState extends State<HospitalBags> {
                       color: Colors.white,
                     )), // Your text here
                     onPressed: () {
-                      Navigator.pushNamed(context, AddHospital.routeName);
+                      Navigator.pushNamed(context, AddBag.routeName);
                     },
                   )),
             ),

@@ -8,6 +8,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import 'donators_app.dart';
+
 class AdminHome extends StatefulWidget {
   static const routeName = '/adminHome';
   const AdminHome({super.key});
@@ -47,40 +49,49 @@ class _AdminHomeState extends State<AdminHome> {
                     onTap: () {
                       Navigator.pushNamed(context, UsersApp.routeName);
                     },
-                    child: card('#2196F3', 'بيانات المستخدمين')),
+                    child: card('#2196F3', 'بيانات المرضى')),
                 ],
               ),
               SizedBox(
                 height: 10.h,
               ),
-              InkWell(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text('تأكيد'),
-                            content: Text('هل انت متأكد من تسجيل الخروج'),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  FirebaseAuth.instance.signOut();
-                                  Navigator.pushNamed(
-                                      context, SplashScreen.routeName);
-                                },
-                                child: Text('نعم'),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text('لا'),
-                              ),
-                            ],
-                          );
-                        });
-                  },
-                  child: card('#ff3c30', 'تسجيل الخروج')),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, DonatorsApp.routeName);
+                    },
+                    child: card('#2196F3', 'بيانات المتبرعين')),
+                  InkWell(
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('تأكيد'),
+                                content: Text('هل انت متأكد من تسجيل الخروج'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      FirebaseAuth.instance.signOut();
+                                      Navigator.pushNamed(
+                                          context, SplashScreen.routeName);
+                                    },
+                                    child: Text('نعم'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('لا'),
+                                  ),
+                                ],
+                              );
+                            });
+                      },
+                      child: card('#ff3c30', 'تسجيل الخروج')),
+                ],
+              ),
             ],
           ),
         ),

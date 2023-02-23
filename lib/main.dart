@@ -1,6 +1,7 @@
 import 'package:blood_bank/screens/admin/add_hospital.dart';
 import 'package:blood_bank/screens/admin/admin_home.dart';
 import 'package:blood_bank/screens/admin/admin_hospitals.dart';
+import 'package:blood_bank/screens/admin/donators_app.dart';
 import 'package:blood_bank/screens/admin/users_app.dart';
 import 'package:blood_bank/screens/auth/admin_login.dart';
 import 'package:blood_bank/screens/auth/hospital_login.dart';
@@ -76,6 +77,7 @@ class MyApp extends StatelessWidget {
         BloodTypes.routeName: (ctx) =>BloodTypes(),
         BagRequest.routeName: (ctx) =>BagRequest(),
         HospitalRequests.routeName: (ctx) =>HospitalRequests(),
+        DonatorsApp.routeName: (ctx) =>DonatorsApp(),
        
 
 
